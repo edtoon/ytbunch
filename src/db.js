@@ -35,6 +35,13 @@ export const getConnection = async () => {
   return knex
 }
 
+export const closeConnection = async () => {
+  if (knex) {
+    await knex.destroy()
+    knex = null;
+  }
+}
+
 export const createSchema = () => {
   return getConnection()
     .then(() => {

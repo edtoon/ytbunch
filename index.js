@@ -21,8 +21,7 @@ const main = async () => {
       }
     }
 
-    db.getConnection()
-      .then(connection => connection.destroy())
+    await db.closeConnection()
   }
 }
 
